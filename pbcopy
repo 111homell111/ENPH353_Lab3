@@ -178,8 +178,6 @@
 
   <!-- I stole this stuff from the link in the google docs hahahahahahaha-->
   
- <xacro:property name="camera_link" value="0.05" /> <!-- Size of square 'camera' box -->
-
 
   <gazebo reference="camera_link">
     <sensor type="camera" name="camera1">
@@ -207,7 +205,7 @@
       <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
         <alwaysOn>true</alwaysOn>
         <updateRate>0.0</updateRate>
-        <cameraName>robot/camera1</cameraName>
+        <cameraName>rrbot/camera1</cameraName>
         <imageTopicName>image_raw</imageTopicName>
         <cameraInfoTopicName>camera_info</cameraInfoTopicName>
         <frameName>camera_link</frameName>
@@ -220,32 +218,4 @@
       </plugin>
     </sensor>
   </gazebo>
-
-
-  <!-- me copy paste again again on skibidi peepepepepepepeeeepepeeee-->
-
-<gazebo>
-  <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
-    <updateRate>100.0</updateRate>
-    <robotNamespace>/</robotNamespace>
-    <leftFrontJoint>wheel_FL_joint</leftFrontJoint>
-    <rightFrontJoint>wheel_FR_joint</rightFrontJoint>
-    <leftRearJoint>wheel_RL_joint</leftRearJoint>
-    <rightRearJoint>wheel_RR_joint</rightRearJoint>
-    <wheelSeparation>${chassis_width + wheel_width}</wheelSeparation>
-    <wheelDiameter>${2 * wheel_radius}</wheelDiameter>
-    <robotBaseFrame>chassis</robotBaseFrame>
-    <torque>20</torque>
-    <topicName>cmd_vel</topicName>
-    <broadcastTF>false</broadcastTF>
-  </plugin>
-</gazebo>
-  
- 
-
-
-
- <!-- dfdh   -->
-
-	 
 </robot>
